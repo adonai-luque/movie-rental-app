@@ -1,8 +1,8 @@
 class Movie < ApplicationRecord
   belongs_to :category
   
-  has_many :rents, dependent: :destroy
-  has_many :users, through: :rents
+  has_many :rentals, dependent: :destroy
+  has_many :users, through: :rentals
   
   validates :name, presence: true
   validates :director, presence: true

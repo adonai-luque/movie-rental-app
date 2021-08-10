@@ -1,0 +1,11 @@
+<h3>Rental detail</h3>
+
+<h6>Movie:</h6>
+<p><%= @rental.movie_id %></p>
+
+<h6>Email:</h6>
+<p><%= @rental.user_id %></p>
+
+<%= link_to "Edit", edit_rental_path(@rental), class: "btn btn-dark" %>
+<%= link_to "Delete", rental_path(@rental), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark"  %>
+<%= link_to 'Back to rentals', rentals_path, class: "btn btn-dark" %>
