@@ -1,0 +1,11 @@
+<h3>User detail</h3>
+
+<h6>Name:</h6>
+<p><%= @user.name %></p>
+
+<h6>Email:</h6>
+<p><%= @user.email %></p>
+
+<%= link_to "Edit", edit_user_path(@user), class: "btn btn-dark" %>
+<%= link_to "Delete", user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark"  %>
+<%= link_to 'Back to users', users_path, class: "btn btn-dark" %>
