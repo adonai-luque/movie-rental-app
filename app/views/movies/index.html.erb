@@ -27,6 +27,11 @@
           <%= link_to 'Show', movie, class: "btn btn-dark" %>
           <%= link_to "Edit", edit_movie_path(movie), class: "btn btn-dark" %>
           <%= link_to "Delete", movie_path(movie), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark"  %>
+          <% if movie.rented? %>
+            <%= link_to "Return", return_movie_path(movie), class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to "Rent", select_movie_user_path(movie), class: "btn btn-success" %>
+          <% end %>
         </td>
       </tr>
     <% end %>

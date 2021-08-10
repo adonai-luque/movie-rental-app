@@ -15,6 +15,10 @@
   <body class="container-xl">
     <%= render "shared/navbar" %>
     
+    <% flash.each do |key, value| %>
+      <div class="alert alert-danger p-2"><%= value %></div>
+    <% end %>
+
     <div class="p-3">
       <%= yield %>
     </div>

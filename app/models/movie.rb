@@ -5,7 +5,7 @@ class Movie < ApplicationRecord
   validates :name, presence: true
   validates :director, presence: true
   validates :release_date, presence: true
-
+  
   def rent(user_id)
     return if self.rented?
     
