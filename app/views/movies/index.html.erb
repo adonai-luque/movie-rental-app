@@ -1,0 +1,27 @@
+<h1>Movies</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Director</th>
+      <th scope="col">Category</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">User ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <th scope="row"><%= movie.id %></th>
+        <td><%= movie.name %></td>
+        <td><%= movie.director %></td>
+        <td><%= movie.category.name %></td>
+        <td><%= movie.release_date %></td>
+        <td><%= movie.rented? ? movie.user_id : "Not Rented" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
