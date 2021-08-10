@@ -8,7 +8,11 @@
       <th scope="col">Director</th>
       <th scope="col">Category</th>
       <th scope="col">Release Date</th>
+      <th scope="col">Status</th>
       <th scope="col">User ID</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -19,9 +23,16 @@
         <td><%= movie.director %></td>
         <td><%= movie.category.name %></td>
         <td><%= movie.release_date %></td>
-        <td><%= movie.rented? ? movie.user_id : "Not Rented" %></td>
+        <td><%= movie.rented? ? "Rented" : "Not Rented" %></td>
+        <td><%= movie.rented? ? movie.user_id : "---" %></td>
+        <td>
+          <%= link_to 'Show', movie, class: "btn btn-dark" %>
+          <%= link_to "Edit", edit_movie_path(movie), class: "btn btn-dark" %>
+          <%= link_to "Delete", movie_path(movie), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark"  %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= link_to 'New Movie', new_movie_path, class: "btn btn-dark" %>

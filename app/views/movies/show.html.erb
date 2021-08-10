@@ -1,0 +1,17 @@
+<h1><%= @movie.name %></h1>
+
+<h6>Director:</h6>
+<p><%= @movie.director %></p>
+
+<h6>Category:</h6>
+<p><%= @movie.category.name %></p>
+
+<h6>Release Date:</h6>
+<p><%= @movie.release_date %></p>
+
+<h6>User ID:</h6>
+<p><%= @movie.rented? ? @movie.user_id : "Not Rented" %></p>
+
+<%= link_to "Edit", edit_movie_path(@movie), class: "btn btn-dark" %>
+<%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark"  %>
+<%= link_to 'Back to movies', movies_path, class: "btn btn-dark" %>
