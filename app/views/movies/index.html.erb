@@ -21,17 +21,17 @@
         <td><%= movie.director %></td>
         <td><%= movie.category.name %></td>
         <td><%= movie.release_date %></td>
-        <td><%= movie.rented? ? "Rented" : "Not Rented" %></td>
-        <td><%= movie.rented? ? movie.user_id : "---" %></td>
+        <td><%= movie.rented? ? "Rented" : "Available" %></td>
+        <td><%= movie.rented? ? movie.user_id : "---" %></td> 
         <td>
           <%= link_to 'Show', movie, class: "btn btn-dark" %>
           <%= link_to "Edit", edit_movie_path(movie), class: "btn btn-dark" %>
           <%= link_to "Delete", movie_path(movie), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark"  %>
           <% if movie.rented? %>
-            <%= link_to "Return", return_movie_path(movie), class: "btn btn-danger" %>
+            <%= link_to "Return", rent_path(movie.rents.first), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark"  %>
           <% else %>
-            <%= link_to "Rent", select_movie_user_path(movie), class: "btn btn-success" %>
-          <% end %>
+            <%= link_to 'Rent', new_rent_path(movie_id: movie.id), class: "btn btn-dark" %>          
+          <% end %> 
         </td>
       </tr>
     <% end %>

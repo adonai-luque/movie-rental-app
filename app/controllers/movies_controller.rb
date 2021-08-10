@@ -67,7 +67,7 @@ class MoviesController < ApplicationController
   private
   
   def movie_params
-    params.require(:movie).permit(:id, :name, :director, :category_id, :release_date, :user_id)
+    params.require(:movie).permit(:id, :name, :director, :category_id, :release_date)
   end
 
   def invalid_foreign_key

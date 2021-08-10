@@ -28,13 +28,6 @@
     <% end %>
   </div>
   <div>
-    <%= form.label :user_id, class: "form-label" %>
-    <%= form.number_field :user_id, class: "form-control" %>
-    <% movie.errors.full_messages_for(:user).each do |message| %>
-      <div class="alert alert-danger p-2"><%= message %></div>
-    <% end %>
-  </div>
-  <div>
     <%= form.submit class: "btn btn-dark mt-2" %>
   </div>
 <% end %>
