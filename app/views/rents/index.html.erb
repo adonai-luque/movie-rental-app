@@ -6,7 +6,6 @@
       <th scope="col">ID</th>
       <th scope="col">Movie ID</th>
       <th scope="col">User ID</th>
-      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -15,14 +14,7 @@
         <th scope="row"><%= rent.id %></th>
         <td><%= rent.movie_id %></td>
         <td><%= rent.user_id %></td>
-        <td>
-          <%= link_to 'Show', rent, class: "btn btn-dark" %>
-          <%= link_to "Edit", edit_rent_path(rent), class: "btn btn-dark" %>
-          <%= link_to "Delete", rent_path(rent), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark"  %>
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'New Rent', new_rent_path, class: "btn btn-dark" %>
