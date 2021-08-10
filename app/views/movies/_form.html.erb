@@ -1,35 +1,35 @@
 <%= form_with model: movie do |form| %>
   <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "form-label" %><br>
+    <%= form.text_field :name, class: "form-control" %>
     <% movie.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
+      <div class="form-text"><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :director %><br>
-    <%= form.text_field :director %>
+    <%= form.label :director, class: "form-label" %><br>
+    <%= form.text_field :director, class: "form-control" %>
     <% movie.errors.full_messages_for(:director).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :category_id %><br>
-    <%= form.text_field :category_id %>
+    <%= form.label :category_id, class: "form-label" %><br>
+    <%= form.text_field :category_id, class: "form-control" %>
     <% movie.errors.full_messages_for(:category_id).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :release_date %><br>
-    <%= form.text_field :release_date %>
+    <%= form.label :release_date, class: "form-label" %><br>
+    <%= form.text_field :release_date, class: "form-control" %>
     <% movie.errors.full_messages_for(:release_date).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :user_id %><br>
-    <%= form.text_field :user_id %>
+    <%= form.label :user_id, class: "form-label" %><br>
+    <%= form.text_field :user_id, class: "form-control" %>
     <% movie.errors.full_messages_for(:user_id).each do |message| %>
       <div><%= message %></div>
     <% end %>
