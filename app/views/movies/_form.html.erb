@@ -1,37 +1,37 @@
 <%= form_with model: movie do |form| %>
   <div>
-    <%= form.label :name, class: "form-label" %><br>
+    <%= form.label :name, class: "form-label" %>
     <%= form.text_field :name, class: "form-control" %>
     <% movie.errors.full_messages_for(:name).each do |message| %>
-      <div class="form-text"><%= message %></div>
+      <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :director, class: "form-label" %><br>
+    <%= form.label :director, class: "form-label" %>
     <%= form.text_field :director, class: "form-control" %>
     <% movie.errors.full_messages_for(:director).each do |message| %>
-      <div><%= message %></div>
+      <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :category_id, class: "form-label" %><br>
-    <%= form.text_field :category_id, class: "form-control" %>
-    <% movie.errors.full_messages_for(:category_id).each do |message| %>
-      <div><%= message %></div>
+    <%= form.label :category_id, class: "form-label" %>
+    <%= form.number_field :category_id, class: "form-control" %>
+    <% movie.errors.full_messages_for(:category).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :release_date, class: "form-label" %><br>
-    <%= form.text_field :release_date, class: "form-control" %>
+    <%= form.label :release_date, class: "form-label" %>
+    <%= form.date_field :release_date, class: "form-control" %>
     <% movie.errors.full_messages_for(:release_date).each do |message| %>
-      <div><%= message %></div>
+      <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.label :user_id, class: "form-label" %><br>
-    <%= form.text_field :user_id, class: "form-control" %>
+    <%= form.label :user_id, class: "form-label" %>
+    <%= form.number_field :user_id, class: "form-control" %>
     <% movie.errors.full_messages_for(:user_id).each do |message| %>
-      <div><%= message %></div>
+      <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
   <div>
