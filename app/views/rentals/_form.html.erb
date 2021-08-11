@@ -7,7 +7,7 @@
     <% end %>
   </div>
   <div>
-    <%= form.label :user_id, "User who wants to rental the movie: ", class: "form-label" %>
+    <%= form.label :user_id, "User who wants to rent the movie: ", class: "form-label" %>
     <%= form.text_field :user_id, class: "form-control" %>
     <% rental.errors.full_messages_for(:user).each do |message| %>
       <div class="alert alert-danger p-2"><%= message %></div>

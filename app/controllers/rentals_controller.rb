@@ -38,6 +38,7 @@ class RentalsController < ApplicationController
 
   def destroy
     @rental = Rental.find(params[:id])
+    PastRental.create(movie_id: @rental.movie_id, user_id: @rental.user_id, rental_date: @rental.created_at)
     @rental.destroy
 
     redirect_to root_path

@@ -5,7 +5,10 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Movie ID</th>
+      <th scope="col">Movie Name</th>
       <th scope="col">User ID</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Rental Date</th>
     </tr>
   </thead>
   <tbody>
@@ -13,7 +16,10 @@
       <tr>
         <th scope="row"><%= rental.id %></th>
         <td><%= rental.movie_id %></td>
+        <td><%= Movie.find(rental.movie_id).name %></td>
         <td><%= rental.user_id %></td>
+        <td><%= User.find(rental.user_id).name %></td>
+        <td><%= rental.created_at %></td>
       </tr>
     <% end %>
   </tbody>

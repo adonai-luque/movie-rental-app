@@ -10,6 +10,7 @@
       <th scope="col">Release Date</th>
       <th scope="col">Status</th>
       <th scope="col">User ID</th>
+      <th scope="col">User Name</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -23,6 +24,7 @@
         <td><%= movie.release_date %></td>
         <td><%= movie.rented? ? "Rented" : "Available" %></td>
         <td><%= movie.rented? ? movie.user_id : "---" %></td> 
+        <td><%= movie.rented? ? User.find(movie.user_id).name : "---" %></td> 
         <td>
           <%= link_to 'Show', movie, class: "btn btn-dark" %>
           <%= link_to "Edit", edit_movie_path(movie), class: "btn btn-dark" %>

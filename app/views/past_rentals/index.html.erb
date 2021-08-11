@@ -1,0 +1,26 @@
+<h1>Past Rentals</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Movie ID</th>
+      <th scope="col">Movie Name</th>
+      <th scope="col">User ID</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Rental Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @past_rentals.each do |past_rental| %>
+      <tr>
+        <th scope="row"><%= past_rental.id %></th>
+        <td><%= past_rental.movie_id %></td>
+        <td><%= Movie.find(past_rental.movie_id).name %></td>
+        <td><%= past_rental.user_id %></td>
+        <td><%= User.find(past_rental.user_id).name %></td>
+        <td><%= past_rental.rental_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
