@@ -2,7 +2,7 @@ class Movie < ApplicationRecord
   belongs_to :category
   
   has_many :rentals, dependent: :destroy
-  has_one :users, through: :rentals
+  has_many :users, through: :rentals
   has_many :past_rentals, dependent: :destroy
 
   
