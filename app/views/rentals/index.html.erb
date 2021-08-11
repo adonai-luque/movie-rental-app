@@ -1,6 +1,7 @@
 <h1>Rentals</h1>
-
-<table class="table">
+<%= link_to 'New Rental', new_rental_path, class: "btn btn-dark my-3" %>
+<%== pagy_bootstrap_nav(@pagy) %>
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">ID</th>

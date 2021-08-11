@@ -1,6 +1,7 @@
 <h1>Categories</h1>
-
-<table class="table">
+<%= link_to 'New Category', new_category_path, class: "btn btn-dark my-3" %>
+<%== pagy_bootstrap_nav(@pagy) %>
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -14,13 +15,11 @@
         <th scope="row"><%= category.id %></th>
         <td><%= category.name %></td>
         <td>
-          <%= link_to 'Show', category, class: "btn btn-dark" %>
-          <%= link_to "Edit", edit_category_path(category), class: "btn btn-dark" %>
-          <%= link_to "Delete", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark"  %>
+          <%= link_to 'Details', category, class: "btn btn-outline-dark" %>
+          <%= link_to "Edit", edit_category_path(category), class: "btn btn-outline-dark" %>
+          <%= link_to "Delete", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-dark"  %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'New Category', new_category_path, class: "btn btn-dark" %>

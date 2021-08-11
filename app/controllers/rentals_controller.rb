@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
   def index
-    @rentals = Rental.all
+    @pagy, @rentals = pagy(Rental.all)
   end
 
   def show

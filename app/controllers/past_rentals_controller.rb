@@ -1,5 +1,5 @@
 class PastRentalsController < ApplicationController
   def index
-    @past_rentals = PastRental.all
+    @pagy, @past_rentals = pagy(PastRental.all)
   end
 end
