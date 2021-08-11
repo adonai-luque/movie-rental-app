@@ -16,6 +16,8 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
 
     if @rental.save
+      puts "Simple puts in controller"
+      ExternalService.send_rental(@rental)
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
