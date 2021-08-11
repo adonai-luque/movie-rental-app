@@ -1,0 +1,22 @@
+.pagy-bootstrap-nav .page-link {
+  color: #383B3F !important;
+  border-color: #9B9D9E !important;
+  font-weight: 500;
+}
+
+.pagy-bootstrap-nav .page-link:hover {
+  background-color: #9B9D9E !important;
+}
+
+
+.pagy-bootstrap-nav .disabled .page-link {
+  color: #9B9D9E !important;
+  border-color: #9B9D9E !important;
+}
+
+.pagy-bootstrap-nav .active .page-link {
+  background-color: #212529 !important;
+  border-color: #212529 !important;
+  color: #FFFFFF !important;
+  
+}
