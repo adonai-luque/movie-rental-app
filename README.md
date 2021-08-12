@@ -47,5 +47,7 @@ After you have these programs installed you follow this steps in the terminal:
   You can't create a user with an email that is already taken.
   You can't perform CRUD operations other than Read on Past Rentals, they are automatically created when a rental ends.
 - When you perform a creation, edition or deletion there will be a notice that will inform you of the result of your request
+- There are unit tests for the models in the folder /spec/models. Tests can be performed from the console with: bundle exec rspec
+
 
 - There is an online version of this app deployed on Heroku at: https://adonai-luque-movie-rental-app.herokuapp.com/
