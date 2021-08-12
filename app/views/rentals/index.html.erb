@@ -1,5 +1,5 @@
 <h1>Rentals</h1>
-<%= link_to 'New Rental', new_rental_path, class: "btn btn-outline-primary my-3" %>
+<%= link_to 'New Rental', new_rental_path(referer: "rentals"), class: "btn btn-outline-primary my-3" %>
 <%== pagy_bootstrap_nav(@pagy) %>
 <table class="table table-striped">
   <thead>
@@ -10,6 +10,7 @@
       <th scope="col">User ID</th>
       <th scope="col">User Name</th>
       <th scope="col">Rental Date</th>
+      <th scope="col">Rental Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,10 @@
         <td><%= rental.user_id %></td>
         <td><%= User.find(rental.user_id).name %></td>
         <td><%= rental.created_at %></td>
+        <td>
+          <%= link_to "Edit", edit_rental_path(rental), class: "btn btn-outline-dark btn-sm m-1" %>
+          <%= link_to "End rental", rental_path(rental), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm m-1"  %>
+        </td>
       </tr>
     <% end %>
   </tbody>

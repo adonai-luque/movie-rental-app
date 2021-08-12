@@ -7,7 +7,8 @@
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
-      <th scope="col"></th>
+      <th scope="col">User Actions</th>
+      <th scope="col">Rental Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -17,9 +18,12 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td>
-          <%= link_to 'Show', user, class: "btn btn-outline-dark" %>
-          <%= link_to "Edit", edit_user_path(user), class: "btn btn-outline-dark" %>
-          <%= link_to "Delete", user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger"  %>
+          <%= link_to 'Details', user, class: "btn btn-outline-dark btn-sm m-1" %>
+          <%= link_to "Edit", edit_user_path(user), class: "btn btn-outline-dark btn-sm m-1" %>
+          <%= link_to "Delete", user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm m-1"  %>
+        </td>
+        <td>
+          <%= link_to 'Rent a movie', new_rental_path(user_id: user.id, referer: "users"), class: "btn btn-outline-primary btn-sm m-1" %>
         </td>
       </tr>
     <% end %>

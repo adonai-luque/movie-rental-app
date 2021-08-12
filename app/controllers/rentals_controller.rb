@@ -10,6 +10,8 @@ class RentalsController < ApplicationController
   def new
     @rental = Rental.new
     @rental.movie_id = params[:movie_id]
+    @rental.user_id = params[:user_id]
+    @referer = params[:referer]
   end
 
   def create

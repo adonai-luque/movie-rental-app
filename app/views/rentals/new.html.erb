@@ -2,4 +2,14 @@
 
 <%= render 'form', rental: @rental %>
 
-<%= link_to 'Back to movies', movies_path, class: "btn btn-outline-dark mt-4" %>
+<% if @referer == "movies" %>
+  <%= link_to 'Back to movies', movies_path, class: "btn btn-outline-dark mt-4" %>  
+<% end %>
+
+<% if @referer == "rentals" %>
+  <%= link_to 'Back to rentals', rentals_path, class: "btn btn-outline-dark mt-4" %>  
+<% end %>
+
+<% if @referer == "users" %>
+  <%= link_to 'Back to users', users_path, class: "btn btn-outline-dark mt-4" %>  
+<% end %>

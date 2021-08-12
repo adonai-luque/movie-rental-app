@@ -17,9 +17,9 @@
         <td><%= category.name %></td>
         <td><%= category.description[0, 30] %><%= category.description[0, 30].length == 30 ? " ..." : "" %></td>
         <td>
-          <%= link_to 'Details', category, class: "btn btn-outline-dark" %>
-          <%= link_to "Edit", edit_category_path(category), class: "btn btn-outline-dark" %>
-          <%= link_to "Delete", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger"  %>
+          <%= link_to 'Details', category, class: "btn btn-outline-dark btn-sm m-1" %>
+          <%= link_to "Edit", edit_category_path(category), class: "btn btn-outline-dark btn-sm m-1" %>
+          <%= link_to "Delete", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm m-1"  %>
         </td>
       </tr>
     <% end %>

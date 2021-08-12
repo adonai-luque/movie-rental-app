@@ -1,14 +1,21 @@
 <h1><%= @movie.name %></h1>
 
-<h6>Director:</h6>
+<h4>Director:</h4>
 <p><%= @movie.director %></p>
 
-<h6>Category:</h6>
+<h4>Category:</h4>
 <p><%= @movie.category.name %></p>
 
-<h6>Release Date:</h6>
+<h4>Release Date:</h4>
 <p><%= @movie.release_date %></p>
 
+<h4>Status</h4>
+<p><%= @movie.rented? ? "Rented" : "Available" %></p>
+
+<% if @movie.rented?  %>
+  <h4>Rented by:</h4>
+  <p><%= User.find(@movie.user_id).name %></p>
+<% end %>
 
 <%= link_to "Edit", edit_movie_path(@movie), class: "btn btn-outline-dark" %>
 <%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger"  %>
