@@ -47,7 +47,7 @@ categories = [
   },
   {
     name: "War",
-    description: "Sci-fi films are often quasi-scientific, visionary and imaginative - complete with heroes, aliens, distant planets, impossible quests, improbable settings, fantastic places, great dark and shadowy villains, futuristic technology, unknown and unknowable forces, and extraordinary monsters ('things or creatures from space'), either created by mad scientists or by nuclear havoc."
+    description: "War (and anti-war) films acknowledge the horror and heartbreak of war, letting the actual combat fighting (against nations or humankind) on land, sea, or in the air provide the primary plot or background for the action of the film."
   },
   {
     name: "Western",

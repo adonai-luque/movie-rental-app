@@ -1,8 +1,4 @@
 <h3>New Rental</h3>
-<% if @rental.movie_id %>
-  <h1>Movie: <%= Movie.find(@rental.movie_id).name %></h1>
-<% end %>
-
 
 <%= render 'form', rental: @rental %>
 

@@ -16,7 +16,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
 
     if @rental.save
-      redirect_to root_path, notice: ExternalService.send_rental(@rental) ? "Rental successfully created and data delivered to External Service" : "Rental created successfully"
+      redirect_to root_path, notice: ExternalService.send_rental(@rental) ? "Rental successfully created and rental data sent to and received by External Service" : "Rental created successfully. External Service didn't respond"
     else
       render :new, status: :unprocessable_entity, notice: "The rental couldn't be created"
     end

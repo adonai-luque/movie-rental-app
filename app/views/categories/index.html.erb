@@ -6,7 +6,8 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
-      <th scope="col"></th>
+      <th scope="col">Description</th>
+      <th scope="col">Category Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,7 @@
       <tr>
         <th scope="row"><%= category.id %></th>
         <td><%= category.name %></td>
+        <td><%= category.description[0, 30] %><%= category.description[0, 30].length == 30 ? " ..." : "" %></td>
         <td>
           <%= link_to 'Details', category, class: "btn btn-outline-dark" %>
           <%= link_to "Edit", edit_category_path(category), class: "btn btn-outline-dark" %>
