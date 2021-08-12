@@ -3,7 +3,7 @@ class Movie < ApplicationRecord
   
   has_many :rentals, dependent: :destroy
   has_many :users, through: :rentals
-  has_many :past_rentals
+  has_many :past_rentals, dependent: :destroy
 
   
   validates :name, presence: true
