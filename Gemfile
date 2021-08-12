@@ -31,10 +31,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'faker', '~> 2.18.0'
 gem 'pagy', '~> 3.5'
 gem 'http', '~> 5.0.1'
+gem 'rexml'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
