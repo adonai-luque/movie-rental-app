@@ -28,17 +28,17 @@ After you have these programs installed you follow this steps in the terminal:
 
 - From there you will be able to perform CRUD operations on the models.
 - Actions in Movies Page:
-  You can Create, Show details of, Edit and Delete a Movie
-  For a specific Movie you can create a Rental, you'll be redirected to a form to enter a User ID
+  You can Create, Show details of, Edit and Delete a Movie.
+  For a specific Movie you can create a Rental, you'll be redirected to a form to enter a User ID.
 - Actions in Categories Page:
   You can Create, Show details of, Edit and Delete a Category.
 - Actions in Users Page:
-  You can Create, Show details of, Edit and Delete a User
-  For a specific User you can create a Rental, you'll be redirected to a form to enter a Movie ID
+  You can Create, Show details of, Edit and Delete a User.
+  For a specific User you can create a Rental, you'll be redirected to a form to enter a Movie ID.
 - Actions in Rentals Page:
-  You can Create, Edit and End a Rental
+  You can Create, Edit and End a Rental.
 - Actions in Past Rentals Page:
-  You can browse the Past Rentals
+  You can browse the Past Rentals.
 - In every action that requires the user to input data there are validations that prevent forbidden behaviour e.g. :
   All fields are mandatory in the creation of a new record of any model.
   You can't create a movie with an invalid category.
