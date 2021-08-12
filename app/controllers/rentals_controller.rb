@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
   def index
-    @pagy, @rentals = pagy(Rental.all)
+    @pagy, @rentals = pagy(Rental.order(updated_at: :desc))
   end
 
   def show
@@ -11,14 +11,14 @@ class RentalsController < ApplicationController
     @rental = Rental.new
     @rental.movie_id = params[:movie_id]
     @rental.user_id = params[:user_id]
-    @referer = params[:referer]
+    $new_rental_referer = params[:referer]
   end
 
   def create
     @rental = Rental.new(rental_params)
-
+    
     if @rental.save
-      redirect_to root_path, notice: ExternalService.send_rental(@rental) ? "Rental successfully created and rental data sent to and received by External Service" : "Rental created successfully. External Service didn't respond"
+      redirect_to "/#{$new_rental_referer}", notice: ExternalService.send_rental(@rental) ? "Rental successfully created and rental data sent to and received by External Service" : "Rental successfully created. External Service didn't respond"
     else
       render :new, status: :unprocessable_entity, notice: "The rental couldn't be created"
     end
@@ -32,7 +32,7 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
 
     if @rental.update(rental_params)
-      redirect_to @rental, notice: "Rental successfully updated"
+      redirect_to @rental, notice: ExternalService.send_rental(@rental) ? "Rental successfully updated and rental data sent to and received by External Service" : "Rental successfully updated. External Service didn't respond"
     else
       render :edit, status: :unprocessable_entity, notice: "The rental couldn't be updated"
     end
@@ -40,13 +40,20 @@ class RentalsController < ApplicationController
 
   def destroy
     @rental = Rental.find(params[:id])
+    destroy_rental_referer = params[:referer]
     PastRental.create(movie_id: @rental.movie_id, user_id: @rental.user_id, rental_date: @rental.created_at)
-    redirect_to root_path, notice: "Movie successfully returned" if @rental.destroy 
+    case destroy_rental_referer
+    when "movies"
+      redirect_to movies_path, notice: "Movie successfully returned" if @rental.destroy 
+    when "rentals"
+      redirect_to rentals_path, notice: "Rental successfully ended" if @rental.destroy 
+    else
+    end
   end
 
   private
   
   def rental_params
-    params.require(:rental).permit(:id, :movie_id, :user_id)
+    params.require(:rental).permit(:id, :movie_id, :user_id, :referer)
   end
 end

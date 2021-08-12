@@ -34,7 +34,7 @@
         </td>
         <td>  
           <% if movie.rented? %>
-            <%= link_to "Return", rental_path(movie.rentals.first), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm m-1"  %>
+            <%= link_to "Return", rental_path(id: movie.rentals.first.id, referer: "movies"), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm m-1"  %>
           <% else %>
             <%= link_to 'Rent', new_rental_path(movie_id: movie.id, referer: "movies"), class: "btn btn-outline-primary btn-sm m-1" %>
           <% end %> 
