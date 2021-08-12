@@ -15,9 +15,9 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to @category
+      redirect_to @category, notice: "Category successfully created"
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, notice: "The category couldn't be created"
     end
   end
 
@@ -29,9 +29,9 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     if @category.update(category_params)
-      redirect_to @category
+      redirect_to @category, notice: "Category successfully updated"
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity, notice: "The category couldn't be updated"
     end
   end
 
@@ -39,7 +39,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
 
-    redirect_to root_path
+    redirect_to root_path, notice: "Category successfully deleted"
   end
 
   private

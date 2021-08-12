@@ -3,7 +3,7 @@
   <% if rental.movie_id && !rental.user_id  %>
     <div class="d-none">
       <%= form.label :movie_id, "Movie ID: ", class: "form-label" %>
-      <%= form.text_field :movie_id, class: "form-control" %>
+      <%= form.text_field :movie_id, class: "form-control mb-2" %>
       <% rental.errors.full_messages_for(:movie).each do |message| %>
         <div class="alert alert-danger p-2"><%= message %></div>
       <% end %>
@@ -11,22 +11,20 @@
   <% else %>
     <div>
       <%= form.label :movie_id, "Movie ID: ", class: "form-label" %>
-      <%= form.text_field :movie_id, class: "form-control" %>
+      <%= form.text_field :movie_id, class: "form-control mb-2" %>
       <% rental.errors.full_messages_for(:movie).each do |message| %>
         <div class="alert alert-danger p-2"><%= message %></div>
       <% end %>
     </div>
-    <br/>  
   <% end %>
-  
   <div>
     <%= form.label :user_id, "User ID: ", class: "form-label" %>
-    <%= form.text_field :user_id, class: "form-control" %>
+    <%= form.text_field :user_id, class: "form-control mb-2" %>
     <% rental.errors.full_messages_for(:user).each do |message| %>
       <div class="alert alert-danger p-2"><%= message %></div>
     <% end %>
   </div>
   <div>
-    <%= form.submit "Rent!", class: "btn btn-success mt-2" %>
+    <%= form.submit "Rent!", class: "btn btn-outline-primary" %>
   </div>
 <% end %>

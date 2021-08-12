@@ -16,11 +16,9 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
 
     if @rental.save
-      puts "Simple puts in controller"
-      ExternalService.send_rental(@rental)
-      redirect_to root_path
+      redirect_to root_path, notice: ExternalService.send_rental(@rental) ? "Rental successfully created and data delivered to External Service" : "Rental created successfully"
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, notice: "The rental couldn't be created"
     end
   end
 
@@ -32,18 +30,16 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
 
     if @rental.update(rental_params)
-      redirect_to @rental
+      redirect_to @rental, notice: "Rental successfully updated"
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity, notice: "The rental couldn't be updated"
     end
   end
 
   def destroy
     @rental = Rental.find(params[:id])
     PastRental.create(movie_id: @rental.movie_id, user_id: @rental.user_id, rental_date: @rental.created_at)
-    @rental.destroy
-
-    redirect_to root_path
+    redirect_to root_path, notice: "Movie successfully returned" if @rental.destroy 
   end
 
   private

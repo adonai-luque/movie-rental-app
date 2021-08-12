@@ -15,9 +15,9 @@ class MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
 
     if @movie.save
-      redirect_to @movie
+      redirect_to @movie, notice: "Movie successfully created"
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, notice: "The movie couldn't be created"
     end
   end
 
@@ -29,9 +29,9 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
 
     if @movie.update(movie_params)
-      redirect_to @movie
+      redirect_to @movie, notice: "Movie successfully updated"
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity, notice: "The movie couldn't be updated"
     end
   end
 
@@ -39,16 +39,12 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.destroy
 
-    redirect_to root_path
+    redirect_to movies_path, notice: "Movie successfully deleted"
   end
 
   private
   
   def movie_params
     params.require(:movie).permit(:id, :name, :director, :category_id, :release_date)
-  end
-
-  def invalid_foreign_key
-    redirect_to movies_path, notice: "Couldn't rent the movie, user doesn't exist"
   end
 end

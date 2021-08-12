@@ -6,6 +6,6 @@
 <h6>Description:</h6>
 <p><%= @category.description %></p>
 
-<%= link_to "Edit", edit_category_path(@category), class: "btn btn-dark" %>
-<%= link_to "Delete", category_path(@category), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark"  %>
-<%= link_to 'Back to categories', categories_path, class: "btn btn-dark" %>
+<%= link_to "Edit", edit_category_path(@category), class: "btn btn-outline-dark" %>
+<%= link_to "Delete", category_path(@category), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger"  %>
+<%= link_to 'Back to categories', categories_path, class: "btn btn-outline-dark" %>
