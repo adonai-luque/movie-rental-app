@@ -1,5 +1,6 @@
 class RentalsController < ApplicationController
   def index
+    $new_rental_referer = nil
     @pagy, @rentals = pagy(Rental.order(updated_at: :desc))
   end
 
@@ -16,9 +17,8 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.new(rental_params)
-    
     if @rental.save
-      redirect_to "/#{$new_rental_referer}", notice: ExternalService.send_rental(@rental) ? "Rental successfully created and rental data sent to and received by External Service" : "Rental successfully created. External Service didn't respond"
+      redirect_to @rental, notice: ExternalService.send_rental(@rental) ? "Rental successfully created and rental data sent to and received by External Service" : "Rental successfully created. External Service didn't respond"
     else
       render :new, status: :unprocessable_entity, notice: "The rental couldn't be created"
     end
@@ -42,12 +42,10 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
     destroy_rental_referer = params[:referer]
     PastRental.create(movie_id: @rental.movie_id, user_id: @rental.user_id, rental_date: @rental.created_at)
-    case destroy_rental_referer
-    when "movies"
+    if destroy_rental_referer == "movies"
       redirect_to movies_path, notice: "Movie successfully returned" if @rental.destroy 
-    when "rentals"
-      redirect_to rentals_path, notice: "Rental successfully ended" if @rental.destroy 
     else
+      redirect_to rentals_path, notice: "Rental successfully ended" if @rental.destroy 
     end
   end
 

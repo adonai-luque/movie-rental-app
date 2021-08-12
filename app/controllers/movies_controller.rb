@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def index
+    $new_rental_referer = nil
     @pagy, @movies = pagy(Movie.all)
   end
 

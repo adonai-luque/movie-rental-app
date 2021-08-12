@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    $new_rental_referer = nil
     @pagy, @users = pagy(User.all)
   end
 
